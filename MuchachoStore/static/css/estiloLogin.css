@@ -1,0 +1,89 @@
+/* Header navbar */
+
+
+
+.navbar {
+    background-color: #d475ad;
+
+}
+
+.navbar-nav .nav-link .bi {
+
+    font-size: 1.0rem;
+
+}
+
+.nav-item.d-flex {
+    margin-left: 10px;
+    width: 20%;
+}
+
+.navbar-nav .nav-link:active {
+    font-weight: bold;
+
+}
+
+
+
+
+/* Iconos Navbar */
+
+#userIcon,
+#cartIcon {
+    color: #2e2b2b;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+    /* margin: auto; */
+
+}
+
+
+/* Header Navbar */
+
+
+/* Lista de productos */
+
+.dropdown-menu {
+    color: #003464;
+}
+
+.dropdown-item {
+    color: #003464;
+}
+
+
+.container {
+    margin-top: 50px;
+}
+
+/* col-md-6 mx-auto */
+.col-md-6.mx-auto {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* background-color: #f8f9fa; */
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+/* Boton Iniciar Sesion */
+
+.btn {
+    background-color: #d475ad;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+
+}
+
+
+
+#cuenta-carrito {
+    background-color: #2AB6DF;
+    color: aqua;
+}
