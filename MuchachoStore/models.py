@@ -4,7 +4,7 @@ from django.db import models
 # Modelo par genero
 
 class Genero(models.Model):
-    id_genero = models.AutoField(primary_key=True, db_column='idGenero')
+    id_genero = models.AutoField(primary_key=True, db_column='Genero')
     nombre = models.CharField(max_length=50, blank=False, null=False)
 
     def __str__(self):
