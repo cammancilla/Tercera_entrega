@@ -8,7 +8,7 @@ class Genero(models.Model):
     nombre = models.CharField(max_length=50, blank=False, null=False)
 
     def __str__(self):
-        return str(self.genero)
+        return str(self.nombre)
 
 
 # Modelo para usuario
@@ -19,7 +19,7 @@ class Usuario(models.Model):
     apellido_paterno = models.CharField(max_length=50)
     apellido_materno = models.CharField(max_length=50)
     fecha_nacimiento = models.DateField(blank=True, null=False)
-    idGenero = models.ForeignKey(Genero, on_delete=models.CASCADE, db_column='idGenero')
+    idGenero = models.ForeignKey(Genero, on_delete=models.CASCADE, db_column='Genero')
     correo = models.EmailField()
     telefono = models.CharField(max_length=12)
     direccion = models.CharField(max_length=100)
