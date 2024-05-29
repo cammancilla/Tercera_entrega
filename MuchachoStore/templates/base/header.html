@@ -1,0 +1,54 @@
+<header>
+
+    <nav class="navbar navbar-expand-lg bg-body-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'indexprincpal' %}" id="titulo">Tienda Muchacho</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto mb-2-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'indexprincpal' %}">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'indexContacto' %}">Contacto</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Catálogo
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'pendrivesec' %}">Pendrives</a></li>
+                            <li><a class="dropdown-item" href="{% url 'parlantesec' %}">Parlantes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'audifonosec' %}">Audifonos</a></li>
+                        </ul>
+
+                </ul>
+                <a href="{% url 'login' %}">
+                    <button type="button" id="userIcon">
+                        <i class="bi bi-person"></i>
+                    </button>
+                </a>
+
+                <button type="button" id="cartIcon">
+                    <i class="bi bi-cart2"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</header>
