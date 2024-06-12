@@ -1,14 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muchacho Store</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'styles/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
@@ -25,7 +25,7 @@
 
         <nav class="navbar navbar-expand-lg bg-body-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="indexprincpal.html" id="titulo">Tienda Muchacho</a>
+                <a class="navbar-brand" href="{% url 'indexPrincipal' %}" id="titulo">Tienda Muchacho</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -35,15 +35,15 @@
                     <ul class="navbar-nav me-auto mb-2-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="indexprincpal.html">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'indexPrincipal' %}">Inicio</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="servicios.html">Servicios</a>
+                            <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="indexContacto.html">Contacto</a>
+                            <a class="nav-link" href="{% url 'indexContacto' %}">Contacto</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -52,13 +52,13 @@
                                 Catálogo
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="pendrivesec.html">Pendrives</a></li>
-                                <li><a class="dropdown-item" href="parlantesec.html">Parlantes</a></li>
-                                <li><a class="dropdown-item" href="audifonosec.html">Audifonos</a></li>
+                                <li><a class="dropdown-item" href="{% url 'pendrivesec' %}">Pendrives</a></li>
+                                <li><a class="dropdown-item" href="{% url 'parlantesec'%}">Parlantes</a></li>
+                                <li><a class="dropdown-item" href="{% url 'audifonosec' %}">Audifonos</a></li>
                             </ul>
 
                     </ul>
-                    <a href="login.html">
+                    <a href="{% url 'login' %}">
                         <button type="button" id="userIcon">
                             <i class="bi bi-person"></i>
                         </button>
@@ -90,21 +90,21 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/pendrive.png" class="rounded mx-auto d-block" alt="cargando...">
+                    <img src="{% static 'img/pendrive.png' %} " class="rounded mx-auto d-block" alt="cargando...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="titulo">Productos destacados de la semana</h5>
                         <p class="subtitulo">Pendrive Sandisk Cruzer Blade 128gb</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/parlantee.png" class="rounded mx-auto d-block" alt="cargando..." height="600px">
+                    <img src="{% static 'img/parlantee.png' %} " class="rounded mx-auto d-block" alt="cargando..." height="600px">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="titulo"> Productos destacados de la semana</h5>
                         <p class="subtitulo">Parlante Bluetooth Akai abts-ms89</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="img/audifonos.png" class="rounded mx-auto d-block" alt="cargando...">
+                    <img src="{% static 'img/audifonos.png' %} " class="rounded mx-auto d-block" alt="cargando...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5 class="titulo">Productos destacados de la semana</h5>
                         <p class="subtitulo">Havit Audífonos Inalámbricos H655BT</p>
@@ -185,13 +185,13 @@
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
                                 style="width: 60px; background-color: #7c4dff; height: 2px" />
                             <p>
-                                <a href="parlantesec.html" class="text-white">Parlantes</a>
+                                <a href="{% url 'parlantesec' %}" class="text-white">Parlantes</a>
                             </p>
                             <p>
-                                <a href="pendrivesec.html" class="text-white">Pendrives</a>
+                                <a href="{% url 'pendrivesec' %}" class="text-white">Pendrives</a>
                             </p>
                             <p>
-                                <a href="audifonosec.html" class="text-white">Audífonos</a>
+                                <a href="{% url 'audifonosec' %} " class="text-white">Audífonos</a>
                             </p>
 
                         </div>
