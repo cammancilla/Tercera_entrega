@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contactanos</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="styles/estiloContacto.css">
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/validacionesContacto.js"></script>
+    <link rel="stylesheet" href="{% static 'styles/estiloContacto.css' %}">
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/validacionesContacto.js' %}"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -22,7 +22,7 @@
     <main>
         <nav class="navbar navbar-expand-lg bg-body-primary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="indexprincpal.html" id="titulo">Tienda Muchacho</a>
+                <a class="navbar-brand" href="{% url 'indexPrincipal' %}" id="titulo">Tienda Muchacho</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -32,15 +32,15 @@
                     <ul class="navbar-nav me-auto mb-2-lg-0">
 
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="indexprincpal.html">Inicio</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'indexPrincipal' %}">Inicio</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="servicios.html">Servicios</a>
+                            <a class="nav-link" href="{% url 'servicios' %}">Servicios</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="indexContacto.html">Contacto</a>
+                            <a class="nav-link" href="{% url 'indexContacto' %}">Contacto</a>
                         </li>
 
                         <li class="nav-item dropdown">
@@ -49,13 +49,13 @@
                                 Catálogo
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="pendrivesec.html">Pendrives</a></li>
-                                <li><a class="dropdown-item" href="parlantesec.html">Parlantes</a></li>
-                                <li><a class="dropdown-item" href="audifonosec.html">Audifonos</a></li>
+                                <li><a class="dropdown-item" href="{% url 'pendrivesec' %}">Pendrives</a></li>
+                                <li><a class="dropdown-item" href="{% url 'parlantesec' %}">Parlantes</a></li>
+                                <li><a class="dropdown-item" href="{% url 'audifonosec' %}">Audifonos</a></li>
                             </ul>
                         </li>
                     </ul>
-                    <a href="login.html">
+                    <a href="{% url 'login' %}">
                         <button type="button" id="userIcon">
                             <i class="bi bi-person"></i>
                         </button>
