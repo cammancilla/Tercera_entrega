@@ -69,6 +69,12 @@ TEMPLATES = [
     },
 ]
 
+LOGIN_REDIRECT_URL = 'indexPrincipal'
+LOGOUT_REDIRECT_URL = 'indexPrincipal'
+LOGIN_URL = 'login'
+
+
+
 WSGI_APPLICATION = 'Tercera_entrega.wsgi.application'
 
 

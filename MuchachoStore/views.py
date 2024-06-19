@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 
+
 # Create your views here.
 
 def indexPrincipal(request):
@@ -29,3 +30,4 @@ def indexPendrivesec(request):
 
 def indexServicios(request):
     return render(request, 'servicios.html')
+
