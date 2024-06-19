@@ -11,7 +11,7 @@ urlpatterns = [
     path('especificacion/', views.indexEspecificacion, name='especificacion'),
     # * ------------------------------------------------
 
-    #* --------- Pagina de Login y Registro ------------
+    # * --------- Pagina de Login y Registro ------------
     path('login/', views.indexLogin, name='login'),
     path('registro/', views.indexRegistro, name='registro'),
     #* -------------------------------------------------

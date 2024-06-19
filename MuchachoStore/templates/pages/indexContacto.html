@@ -7,13 +7,14 @@
     <title>Contactanos</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="{% static 'styles/estiloContacto.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estiloContacto.css' %}">
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/validacionesContacto.js' %}"></script>
+    <!--XD-->
+    
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-image: url(img/background.jpg);
+            background-image: url("../../static/img/background.jpg");
         }
     </style>
 </head>
@@ -180,13 +181,13 @@
                             <hr class="mb-4 mt-0 d-inline-block mx-auto"
                                 style="width: 60px; background-color: #7c4dff; height: 2px" />
                             <p>
-                                <a href="parlantesec.html" class="text-white">Parlantes</a>
+                                <a href="{% url 'pendrivesec' %}" class="text-white">Parlantes</a>
                             </p>
                             <p>
-                                <a href="pendrivesec.html" class="text-white">Pendrives</a>
+                                <a href="{% url 'parlantesec' %}" class="text-white">Pendrives</a>
                             </p>
                             <p>
-                                <a href="audifonosec.html" class="text-white">Audifonos</a>
+                                <a href="{% url 'audifonosec' %}" class="text-white">Audifonos</a>
                             </p>
 
                         </div>
@@ -241,7 +242,6 @@
         </footer>
         <!-- Footer -->
 
-        <script src="validacionesContacto.js"></script>
     </main>
 
 
