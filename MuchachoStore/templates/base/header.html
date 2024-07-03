@@ -42,13 +42,41 @@
                 </a>
 
                 <button type="button" id="cartIcon">
-                    <i class="bi bi-cart2"></i>
-                </button>
-
+                    <i class="bi bi-cart2" onclick="showCart(this)" class="cart"></i>
+                  </button>
+                  <span id="count-product">0</span>
+                </div>
+                <div class="cart-products" id="products-id">
+                  <br>
+                  <button type="button" class="btn-close" aria-label="Close" onclick="closeBtn()"></button>
+                  <h3>Mi carrito</h3>
+                  <div class="card-items">
+                    <div class="card-cart">
+      
+                      <!--  prueba de vista producto
+                    <img src="img/pendrive2.png" class="rounded mx-auto d-block" alt="cargando..." height="300px" width="300px">
+                    <div class="card-body">
+                    <h5 class="card-title">Pendrive 32GB Kingston DataTraveler DT100 G3</h5>
+                    <p class="precio">$4.990</p>
+                    <h6>Amount: 3</h6> 
+                    <span class="delete-product" data-id="">X</span> -->
+      
+                    </div>
+      
+                  </div>
+                  <h2>Total: $<strong class="price-total">0</strong></h2>
+                </div>
+              </div>
             </div>
 
-        </div>
-
     </nav>
-
+    <script>
+        function showCart(x) {
+          document.getElementById("products-id").style.display = "block";
+        }
+        function closeBtn() {
+          document.getElementById("products-id").style.display = "none";
+        }
+    
+      </script>
 </header>
