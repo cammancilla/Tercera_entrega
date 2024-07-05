@@ -1,0 +1,15 @@
+.navbar {
+    background-color: #d475ad;
+
+}
+
+.navbar-nav .nav-link .bi {
+
+    font-size: 1.0rem;
+
+}
+
+.nav-item.d-flex {
+    margin-left: 10px;
+    width: 20%;
+}
