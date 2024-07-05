@@ -17,6 +17,13 @@ def indexEspecificacion(request):
     return render(request, 'especificacion.html')
 
 def indexLogin(request):
+
+    if request.method == 'GET':
+        print('GET')
+    else:
+        print('POST')
+
+
     return render(request, 'login.html')
 
 def indexRegistro(request):

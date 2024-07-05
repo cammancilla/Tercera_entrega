@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #d475ad;
+    background-color: #0d09e7;
 
 }
 
@@ -12,4 +12,14 @@
 .nav-item.d-flex {
     margin-left: 10px;
     width: 20%;
+}
+
+#userIcon,
+#logoutIcon {
+    color: #2e2b2b;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8rem;
+    /* margin: auto; */
+
 }

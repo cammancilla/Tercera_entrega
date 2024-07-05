@@ -53,17 +53,33 @@
                         <i class="bi bi-person"></i>
                     </button>
                 </a>
-                <button type="button" id="cartIcon">
-                    <i class="bi bi-cart2"></i>
-                </button>
+
+                <a href="">
+                    <button type="button" id="logoutIcon">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </a>
+                
             </div>
         </div>
     </nav>
 
     <main>
-
-
+        {% comment %} Contenedor 3 botones {% endcomment %}
+        
+        <div class="container bg-white mb-4 mt-4 text-center shadow-lg mx-auto text-center p-3">
+            <h1 class="text-center my-5">Panel de Administración</h1>
+            <div class = "row">
+                <div class="col-sm mx-auto">
+                    <a href="" class="btn btn-primary">Gestionar Usuarios</a>
+                    <a href="" class="btn btn-primary">Gestionar Productos</a>
+                    <a href="" class="btn btn-primary">Generar Informes</a>
+                </div>
+            </div>
+        </div>
+            
 
     </main>
+    {% include 'base/footer.html'%}
 </body>
 </html>
