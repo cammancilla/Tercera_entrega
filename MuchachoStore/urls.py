@@ -15,6 +15,11 @@ urlpatterns = [
     path('login/', views.indexLogin, name='login'),
     path('registro/', views.indexRegistro, name='registro'),
     #* -------------------------------------------------
+
+    # * --------- Pagina de Administrador ---------------
+    path('indexAdmin/', views.indexAdmin, name='indexAdmin'),
+    # * ------------------------------------------------
+
     
     # * --------- Paginas de Productos -----------------
     path('parlantesec/', views.indexParlantesec, name='parlantesec'),
