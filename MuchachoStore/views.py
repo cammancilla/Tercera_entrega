@@ -31,3 +31,6 @@ def indexPendrivesec(request):
 def indexServicios(request):
     return render(request, 'servicios.html')
 
+def indexAdmin(request):
+    return render(request, 'indexAdmin.html')
+
