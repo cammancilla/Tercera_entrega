@@ -3,29 +3,54 @@ from django.db import models
 # Create your models here.
 # Modelo par genero
 
-class Genero(models.Model):
-    id_genero = models.AutoField(primary_key=True, db_column='Genero')
-    nombre = models.CharField(max_length=50, blank=False, null=False)
-
-    def __str__(self):
-        return str(self.nombre)
-
-
-# Modelo para usuario
-
-class Usuario(models.Model):
-    rut = models.CharField(max_length=12, primary_key=True)
+# Modelo para categoria
+class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
-    apellido_paterno = models.CharField(max_length=50)
-    apellido_materno = models.CharField(max_length=50)
-    fecha_nacimiento = models.DateField(blank=True, null=False)
-    idGenero = models.ForeignKey(Genero, on_delete=models.CASCADE, db_column='Genero')
-    correo = models.EmailField()
-    telefono = models.CharField(max_length=12)
-    direccion = models.CharField(max_length=100)
-    contrasena = models.CharField(max_length=50)
-    activo = models.BooleanField(default=True)
-
+    descripcion = models.CharField(max_length=100)
 
     def __str__(self):
-        return str(self.rut) + " " + str(self.nombre) + " " + str(self.apellido_paterno) + " " + str(self.apellido_materno) + " " + str(self.fecha_nacimiento) + " " + str(self.idGenero) + " " + str(self.correo) + " " + str(self.telefono) + " " + str(self.direccion) + " " + str(self.contrasena) + " " + str(self.activo)
+        return self.nombre
+    
+# Modelo para producto
+class Producto(models.Model):
+    nombre = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=100)
+    precio = models.DecimalField(max_digits=5, decimal_places=2)
+    stock = models.IntegerField()
+    imagen = models.ImageField(upload_to='productos', null=True, blank=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre
+    
+# Modelo para cliente
+class Cliente(models.Model):
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    email = models.EmailField()
+    telefono = models.CharField(max_length=10)
+    direccion = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nombre + ' ' + self.apellido
+    
+# Modelo para pedido
+class Pedido(models.Model):
+    fecha = models.DateTimeField(auto_now_add=True)
+    total = models.DecimalField(max_digits=5, decimal_places=2)
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.id)
+    
+# Modelo para comentario para mejorar la experiencia del cliente
+class Comentario(models.Model):
+    nombre = models.CharField(max_length=50)
+    email = models.EmailField()
+    mensaje = models.TextField()
+
+    def __str__(self):
+        return self.nombre
+    
+
+    
