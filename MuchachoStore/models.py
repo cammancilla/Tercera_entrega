@@ -12,16 +12,19 @@ class Categoria(models.Model):
         return self.nombre
     
 # Modelo para producto
+# Precio NUMERICO
+
 class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=100)
-    precio = models.DecimalField(max_digits=5, decimal_places=2)
+    precio = models.DecimalField(max_digits=10, decimal_places=0)
     stock = models.IntegerField()
-    imagen = models.ImageField(upload_to='productos', null=True, blank=True)
+    imagen = models.ImageField(upload_to='productos', blank=True, null=True)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
+
     
 # Modelo para cliente
 class Cliente(models.Model):
