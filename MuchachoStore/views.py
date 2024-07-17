@@ -39,5 +39,6 @@ def indexServicios(request):
     return render(request, 'servicios.html')
 
 def indexAdmin(request):
-    return render(request, 'indexAdmin.html')
+    productos = Producto.objects.all()
+    return render(request, 'indexAdmin.html', {'productos': productos})
 
