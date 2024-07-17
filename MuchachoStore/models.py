@@ -4,13 +4,7 @@ from django.db import models
 # Modelo par genero
 
 # Modelo para categoria
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=50)
-    descripcion = models.CharField(max_length=100)
 
-    def __str__(self):
-        return self.nombre
-    
 # Modelo para producto
 # Precio NUMERICO
 
@@ -20,7 +14,7 @@ class Producto(models.Model):
     precio = models.DecimalField(max_digits=10, decimal_places=0)
     stock = models.IntegerField()
     imagen = models.ImageField(upload_to='productos', blank=True, null=True)
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    categoria = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nombre

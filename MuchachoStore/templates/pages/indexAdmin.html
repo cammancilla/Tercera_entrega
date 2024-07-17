@@ -29,23 +29,11 @@
                 <ul class="navbar-nav me-auto mb-2-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="">Inicio Administrador</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'indexAdmin' %}">Inicio Administrador</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="">Productos</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Base de datos
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="">Usuarios</a></li>
-                            <li><a class="dropdown-item" href="">Productos</a></li>
-                            <li><a class="dropdown-item" href="">Ventas</a></li>
-                        </ul>
+                        <a class="nav-link" href="{% url 'parlantesec' %}">Productos</a>
                     </li>
                 </ul>
                 <a href="">
@@ -54,7 +42,7 @@
                     </button>
                 </a>
 
-                <a href="">
+                <a href="{% url 'indexPrincipal' %}">
                     <button type="button" id="logoutIcon">
                         <i class="bi bi-box-arrow-right"></i>
                     </button>
@@ -71,10 +59,29 @@
             <h1 class="text-center my-5">Panel de Administración</h1>
             <div class = "row">
                 <div class="col-sm mx-auto">
-                    <a href="" class="btn btn-primary">Gestionar Usuarios</a>
-                    <a href="" class="btn btn-primary">Gestionar Productos</a>
-                    <a href="" class="btn btn-primary">Generar Informes</a>
+                    <a href="{% url 'producto_create' %}" class="btn btn-primary">Crear Productos</a>
+                    
                 </div>
+                <br><hr>
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                    {% for producto in productos %}
+                    <tr>
+                        <td>{{producto.nombre}}</td>
+                        <td>{{producto.descripcion}}</td>
+                        <td>{{producto.precio}}</td>
+                        <td>{{producto.stock}}</td>
+			            <td><a href="{% url 'producto_update' pk=producto.id %}" class="btn btn-primary">Editar</a></td>
+                        <td><a href="{% url 'producto_delete' pk=producto.id %}" class="btn btn-primary">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
             </div>
         </div>
             

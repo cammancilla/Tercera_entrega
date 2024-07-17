@@ -33,5 +33,10 @@ urlpatterns = [
 
     # * --------- ACCOUNTS ---------------------
     
+    # * ----------C-R-U-D----------------------
+
+    path('producto_create/', views.crearProducto, name='producto_create'),
+    path('producto_update/<str:pk>/', views.actualizarProducto, name='producto_update'),
+    path('producto_delete/<str:pk>/', views.eliminarProducto, name='producto_delete'),
 
 ]
