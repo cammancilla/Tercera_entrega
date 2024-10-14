@@ -43,6 +43,9 @@ def indexAdmin(request):
     productos = Producto.objects.all()
     return render(request, 'indexAdmin.html', {'productos':productos})
 
+
+
+
 def crearProducto(request):
     producto = Producto.objects.get
     if request.method == "POST":

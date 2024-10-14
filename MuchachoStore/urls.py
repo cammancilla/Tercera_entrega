@@ -1,3 +1,5 @@
+
+
 from Tercera_entrega.urls import path
 from . import views
 
@@ -38,5 +40,12 @@ urlpatterns = [
     path('producto_create/', views.crearProducto, name='producto_create'),
     path('producto_update/<str:pk>/', views.actualizarProducto, name='producto_update'),
     path('producto_delete/<str:pk>/', views.eliminarProducto, name='producto_delete'),
+
+    # * ---------------------------------------
+    
+    
+
+
+
 
 ]

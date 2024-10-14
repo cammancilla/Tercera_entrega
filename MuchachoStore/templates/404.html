@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página no encontrada</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-6 text-center">
+                <h1 class="display-1 fw-bold text-danger mb-4">404</h1>
+                <h2 class="mb-4">Página no encontrada</h2>
+                <p class="lead mb-5">Lo sentimos, pero la página que estás buscando no existe.</p>
+                <a href="/" class="btn btn-primary btn-lg">Volver al inicio</a>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
