@@ -6,7 +6,7 @@ let buyThings = [];
 let totalCard = 0;
 let countProduct = 0;
 
-function loadEventListenrs(){
+function loadEventListeners(){
     allContainerCart.addEventListener('click', addProduct);
     containerBuyCart.addEventListener('click', deleteProduct);
 }
@@ -41,7 +41,7 @@ function loadHtml(){
         const row = document.createElement('div');
         row.classList.add('card');
         row.innerHTML = `
-        <img src="${image}" alt="cargando..." width="400px" heigth="80px">
+        <img src="${image}" alt="cargando..." width="400px" height="80px">
         <div class="card-body">
           <h5 class="card-title">${title}</h5>
           <p class="precio">${price}</p>

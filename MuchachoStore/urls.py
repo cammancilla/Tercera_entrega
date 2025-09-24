@@ -1,4 +1,4 @@
-from Tercera_entrega.urls import path
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -13,6 +13,7 @@ urlpatterns = [
 
     # * --------- Pagina de Login y Registro ------------
     path('login/', views.indexLogin, name='login'),
+    path('logout/', views.indexLogout, name='logout'),
     path('registro/', views.indexRegistro, name='registro'),
     #* -------------------------------------------------
 

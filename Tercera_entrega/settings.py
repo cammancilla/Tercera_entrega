@@ -128,6 +128,15 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'MuchachoStore', 'static')]
 
+# Media files (user uploaded files)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Login settings
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'indexAdmin'
+LOGOUT_REDIRECT_URL = 'indexPrincipal'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

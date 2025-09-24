@@ -1,12 +1,29 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from .models import Producto, Comentario
 
-class ProductoForm(forms.Form):
-    nombre = forms.CharField(max_length=50)
-    descripcion = forms.CharField(max_length=100)
-    precio = forms.DecimalField(max_digits=10, decimal_places=0)
-    stock = forms.IntegerField()
-    categoria = forms.CharField(max_length=50)
+class ProductoForm(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['nombre', 'descripcion', 'precio', 'stock', 'imagen', 'categoria']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion': forms.TextInput(attrs={'class': 'form-control'}),
+            'precio': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.01'}),
+            'stock': forms.NumberInput(attrs={'class': 'form-control'}),
+            'imagen': forms.FileInput(attrs={'class': 'form-control'}),
+            'categoria': forms.TextInput(attrs={'class': 'form-control'}),
+        }
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = ['nombre', 'email', 'mensaje']
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'mensaje': forms.Textarea(attrs={'class': 'form-control', 'rows': 4}),
+        }
 
 class LoginForm(forms.Form):
     username = forms.CharField(

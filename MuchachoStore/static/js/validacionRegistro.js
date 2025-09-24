@@ -24,34 +24,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        if (nombre.value == "" || nombre.value.length < 2) {
-            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Nombre no puede estar vacio o posee menos de 3 Caracteres</div>";
+        if (nombre.value == "" || nombre.value.length < 3) {
+            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Nombre no puede estar vacío o tener menos de 3 caracteres</div>";
             mensaje.classList.add("alert-danger");
-            console.log("Nombre no puede estar vacio");
+            console.log("Nombre no puede estar vacío");
 
             return;
-        } else if (apellido.value == "" || apellido.value.length < 2) {
-            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Apellido no puede estar vacio o posee menos de 3 Caracteres</div>";
+        } else if (apellido.value == "" || apellido.value.length < 3) {
+            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Apellido no puede estar vacío o tener menos de 3 caracteres</div>";
             mensaje.classList.add("alert-danger");
-            console.log("Apellido no puede estar vacio");
+            console.log("Apellido no puede estar vacío");
 
             return;
         } else if (!regexCorreo.test(correo.value)) {
-            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Correo no valido</div>";
+            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Correo no válido</div>";
             mensaje.classList.add("alert-danger");
-            console.log("Correo no valido");
+            console.log("Correo no válido");
 
             return;
         } else if (edad.value == "" || edad.value < 18) {
-            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Edad no puede estar vacio o ser menor a 18 años</div>";
+            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Edad no puede estar vacía o ser menor a 18 años</div>";
             mensaje.classList.add("alert-danger");
-            console.log("Edad no puede estar vacio");
+            console.log("Edad no puede estar vacía");
 
             return;
         } else if (!regexPassword.test(password.value)) {
-            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Contraseña debe tener al menos 8 carácteres, una minuscula, 1 mayuscula, 1 numero y 1 caracter especial</div>";
+            mensaje.innerHTML = "<div class='alert alert-danger w-50 mx-auto text-center'>Contraseña debe tener al menos 8 caracteres, una minúscula, 1 mayúscula, 1 número y 1 carácter especial</div>";
             mensaje.classList.add("alert-danger");
-            console.log("Contraseña no valida");
+            console.log("Contraseña no válida");
 
             return;
         } else if (password.value != passwordConfirmacion.value) {

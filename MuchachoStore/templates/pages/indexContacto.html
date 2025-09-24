@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 {% load static %}
 <head>
     <meta charset="UTF-8">
@@ -11,12 +11,10 @@
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     
-    <!--XD-->
-    
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-image: url("../../static/img/background.jpg");
+            background-image: url("{% static 'img/background.jpg' %}");
         }
     </style>
 </head>
@@ -40,37 +38,20 @@
                             Contactanos!
                         </h3>
 
-                        <form action="" id="formularioContacto">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} w-75 mx-auto text-center">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
 
-                            <div class="mb-4">
-                                <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre">
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="apellido" class="form-label">Apellido</label>
-                                <input type="text" name="apellido" id="apellido" class="form-control">
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="correo" class="form-label">Correo</label>
-                                <input type="email" name="correo" id="correo" class="form-control">
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="telefono" class="form-label">Telefono</label>
-                                <input type="number" name="telefono" id="telefono" class="form-control">
-                            </div>
-
-                            <div class="mb-4">
-                                <label for="comentario" class="form-label">Agrega tu comentario / Queja / Recomendación
-                                </label>
-                                <textarea name="comentario" id="comentario" class="form-control"
-                                    style="height: 100px;resize: none;"></textarea>
-                            </div>
+                        <form method="POST" id="formularioContacto">
+                            {% csrf_token %}
+                            {{ form.as_p }}
 
                             <div class="w-50 mx-auto mb-4 text-center">
-                                <button class="btn btn-primary" id="btnContacto">Enviar comentarios</button>
+                                <button type="submit" class="btn btn-primary" id="btnContacto">Enviar comentarios</button>
                             </div>
 
                             <div class="mb-4 mt-4" id="warnings"></div>

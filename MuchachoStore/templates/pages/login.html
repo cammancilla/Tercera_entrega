@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 {% load static  %}
 <head>
     <meta charset="UTF-8">
@@ -9,13 +9,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{% static 'css/estiloLogin.css' %}">
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
-    <script src="{% static 'js/validacionLogin.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-image: url("../../static/img/background.jpg");
+            background-image: url("{% static 'img/background.jpg' %}");
         }
     </style>
 
@@ -31,8 +29,15 @@
             <div class="col-md-6 mx-auto">
                 <div class="card card-body">
                     <h3 class="text-center mb-4">Inicio de Sesión</h3>
-                    <form action="{% url 'indexAdmin'%}" method= "POST" id="loginForm">
+                    <form method="POST" id="loginForm">
                         {% csrf_token %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} w-75 mx-auto text-center">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
                         <div class="mb-4">
                             <label for="correo" class="form-label">Correo Electrónico</label>
                             <input type="email" id="correo" class="form-control" name="correo">
@@ -45,16 +50,10 @@
                         </div>
                         <div class="w-50 mx-auto mb-4">
                             <center>
-
+                                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                    Iniciar Sesión
+                                </button>
                             </center>
-
-                            {% comment %} href indexAdmin {% endcomment %}
-
-                            <center>
-                                <a href="{% url 'indexAdmin' %}" class="btn btn-primary btn-lg btn-block">Iniciar
-                                    Sesión</a>
-                            </center>
-
                         </div>
                         <div id="warnings" class="mb-4 mt-4"></div>
 
@@ -71,6 +70,9 @@
 
 
     {% include 'base/footer.html'%}
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/validacionLogin.js' %}"></script>
 
 </body>
 

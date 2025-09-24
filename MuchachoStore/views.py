@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .models import *
-from .forms import ProductoForm
+from .forms import ProductoForm, ComentarioForm
 
 
 # Create your views here.
@@ -9,7 +12,15 @@ def indexPrincipal(request):
     return render(request, 'indexprincipal.html')
 
 def indexContacto(request):
-    return render(request, 'indexContacto.html')
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Tu comentario ha sido enviado exitosamente.')
+            return redirect('indexContacto')
+    else:
+        form = ComentarioForm()
+    return render(request, 'indexContacto.html', {'form': form})
 
 def indexAudifonosec(request):
     return render(request, 'audifonosec.html')
@@ -18,17 +29,34 @@ def indexEspecificacion(request):
     return render(request, 'especificacion.html')
 
 def indexLogin(request):
-
-    if request.method == 'GET':
-        print('GET')
-    else:
-        print('POST')
-
-
+    if request.method == 'POST':
+        email = request.POST.get('correo')
+        password = request.POST.get('passwordLogin')
+        
+        # Buscar usuario por email en lugar de username
+        from django.contrib.auth.models import User
+        try:
+            user = User.objects.get(email=email)
+            user = authenticate(request, username=user.username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                messages.success(request, 'Bienvenido! Has iniciado sesión exitosamente.')
+                return redirect('indexAdmin')
+            else:
+                messages.error(request, 'Credenciales incorrectas.')
+        except User.DoesNotExist:
+            messages.error(request, 'No existe una cuenta con este correo electrónico.')
+    
     return render(request, 'login.html')
 
 def indexRegistro(request):
     return render(request, 'registro.html')
+
+def indexLogout(request):
+    logout(request)
+    messages.success(request, 'Has cerrado sesión exitosamente.')
+    return redirect('indexPrincipal')
 
 def indexParlantesec(request):
     return render(request, 'parlantesec.html')
@@ -39,24 +67,17 @@ def indexPendrivesec(request):
 def indexServicios(request):
     return render(request, 'servicios.html')
 
+@login_required
 def indexAdmin(request):
     productos = Producto.objects.all()
     return render(request, 'indexAdmin.html', {'productos':productos})
 
 def crearProducto(request):
-    producto = Producto.objects.get
     if request.method == "POST":
-        form = ProductoForm(request.POST)
+        form = ProductoForm(request.POST, request.FILES)
         if form.is_valid():
-            producto = Producto(
-                nombre = form.cleaned_data['nombre'],
-                descripcion = form.cleaned_data['descripcion'],
-                precio = form.cleaned_data['precio'],
-                stock = form.cleaned_data['stock'],
-                categoria = form.cleaned_data['categoria'],
-            )
-            producto.save()
-
+            form.save()
+            messages.success(request, 'Producto creado exitosamente.')
             return redirect('indexAdmin')
     else:
         form = ProductoForm()
@@ -65,35 +86,18 @@ def crearProducto(request):
 def actualizarProducto(request, pk):
     producto = get_object_or_404(Producto, pk=pk)
     if request.method == "POST":
-        form = ProductoForm(request.POST)
+        form = ProductoForm(request.POST, request.FILES, instance=producto)
         if form.is_valid():
-            producto.nombre = form.cleaned_data['nombre']
-            producto.descripcion = form.cleaned_data['descripcion']
-            producto.precio = form.cleaned_data['precio']
-            producto.stock = form.cleaned_data['stock']
-            producto.categoria = form.cleaned_data['categoria']
-            producto.save()
-
+            form.save()
+            messages.success(request, 'Producto actualizado exitosamente.')
             return redirect('indexAdmin')
     else:
-        form = ProductoForm(initial={
-            'nombre': producto.nombre,
-            'descripcion': producto.descripcion,
-            'precio': producto.precio,
-            'stock': producto.stock,
-            'categoria': producto.categoria,
-        })
-    return render(request, 'productoModificar.html', {'form': form})
+        form = ProductoForm(instance=producto)
+    return render(request, 'productoModificar.html', {'form': form, 'producto': producto})
     
 def eliminarProducto(request, pk):
-    context = {}
-    try:
-        producto = Producto.objects.get(id=pk)
+    producto = get_object_or_404(Producto, pk=pk)
+    if request.method == 'POST':
         producto.delete()
-        productos = Producto.objects.all()
-        context = {'productos':productos}
-        return render(request, 'indexAdmin.html', context)
-    except Producto.DoesNotExist:
-        productos = Producto.objects.all()
-        context = {'productos':productos}
-        return render(request, 'indexAdmin.html', context)
+        messages.success(request, 'Producto eliminado exitosamente.')
+    return redirect('indexAdmin')
